@@ -19,7 +19,11 @@ class ProductDisplay:
 
 @pytest.fixture(scope="class")
 def products(request):
-    request.cls.products = [Product(1, 2, 13.0), Product(2, 2, 99.99), Product(3, 4, 0.01)]
+    request.cls.products = [
+        Product(1, 2, 13.0),
+        Product(2, 2, 99.99),
+        Product(3, 4, 0.01),
+    ]
 
 
 @pytest.mark.usefixtures("products")
@@ -30,18 +34,29 @@ class TestSelect:
 
     def test_multi_select(self):
         p = Pinq(self.products)
-        assert p.select(p.attr('price')).select(str).to_list() == ["13.0", "99.99", "0.01"]
+        expected = ["13.0", "99.99", "0.01"]
+
+        assert p.select(p.attr('price')).select(str).to_list() == expected
 
 
 @pytest.mark.usefixtures("products")
 class TestWhere:
     def test_filter_is_applied(self):
-        p = Pinq(self.products)
-        assert p.where(lambda p: p.category == 2).select(lambda p: p.id).to_list() == [1, 2]
+        assert (
+            Pinq(self.products)
+            .where(lambda p: p.category == 2)
+            .select(lambda p: p.id)
+            .to_list()
+        ) == [1, 2]
 
     def test_multi_filter(self):
-        p = Pinq(self.products)
-        assert p.where(lambda p: p.category == 2).where(lambda p: p.price > 50).select(lambda p: p.id).to_list() == [2]
+        assert (
+            Pinq(self.products)
+            .where(lambda p: p.category == 2)
+            .where(lambda p: p.price > 50)
+            .select(lambda p: p.id)
+            .to_list()
+        ) == [2]
 
 
 @pytest.mark.usefixtures("products")
