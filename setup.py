@@ -15,7 +15,7 @@ setup(
     author="Elijah Wilson",
     author_email="elijah@elijahwilson.me",
     description="LINQ style API for Python.",
-    # long_description=open('README.md').read(),
+    long_description=open('README.md').read(),
     license="MIT",
     keywords="linq pinq api",
     install_requires=[],
@@ -29,6 +29,7 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
     ],
     zip_safe=True,
 )
