@@ -14,4 +14,5 @@ When contributing, make sure the test code coverage is not below 100%. To run te
 ```
 pip install -e .
 pytest tests --cov=pinq
+flake8 pinq tests
 ```
