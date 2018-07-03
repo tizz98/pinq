@@ -2,11 +2,11 @@
 from setuptools import setup
 
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 
 setup(
-    name="pinq",
+    name="simple-pinq",
     version=__version__,
     url="https://github.com/tizz98/pinq",
     download_url="https://github.com/tizz98/pinq/tarball/{version}".format(

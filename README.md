@@ -3,7 +3,7 @@ A [LINQ](https://msdn.microsoft.com/en-us/library/bb308959.aspx) style API for P
 
 ## Installation
 ```
-pip install pinq
+pip install simple-pinq
 ```
 
 ## Docs
